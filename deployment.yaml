@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gotifications
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gotifications
+  template:
+    metadata:
+      labels:
+        app: gotifications
+    spec:
+      containers:
+      - name: gotifications-container
+        image: gotifications-img
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 1042
