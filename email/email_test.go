@@ -8,7 +8,6 @@ import (
 
 func init() {
 	env.LoadAndCheck()
-	Load()
 }
 
 func TestSendEmail(t *testing.T) {

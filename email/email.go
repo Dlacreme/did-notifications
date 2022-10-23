@@ -15,10 +15,17 @@ type smtpConfig struct {
 	auth     smtp.Auth
 }
 
-var smtpC smtpConfig
+var smtpC *smtpConfig
 
-func Load() {
-	smtpC = loadSMTPConfig()
+func SendEmail(from string, to []string, subject string, body string) error {
+	if smtpC == nil {
+		smtpC = loadSMTPConfig()
+	}
+	message := buildMessage(from, to, subject, body)
+	if env.IsDebug() {
+		fmt.Printf("Sending email through [%s]\n----\n%s\n----\n", smtpC.addr, message)
+	}
+	return smtp.SendMail(smtpC.addr, smtpC.auth, from, to, message)
 }
 
 func buildHeader(from string, to []string, subject string) string {
@@ -38,22 +45,13 @@ func buildMessage(from string, to []string, subject string, body string) []byte 
 	return []byte(header + "\r\n" + body + "\r\n")
 }
 
-func SendEmail(from string, to []string, subject string, body string) error {
-	message := buildMessage(from, to, subject, body)
-	if env.IsDebug() {
-		fmt.Printf("Sending email through [%s]\n----\n%s\n----\n", smtpC.addr, message)
-	}
-	return smtp.SendMail(smtpC.addr, smtpC.auth, from, to, message)
-}
-
-func loadSMTPConfig() smtpConfig {
+func loadSMTPConfig() *smtpConfig {
 	port := os.Getenv("SMTP_PORT")
 	hostname := os.Getenv("SMTP_HOSTNAME")
 	addr := fmt.Sprintf("%s:%s", hostname, port)
 	username := os.Getenv("SMTP_USERNAME")
 	passwd := os.Getenv("SMTP_PASSWORD")
-	fmt.Printf("PORT [%s]\nHOSTNAME [%s]\nADDR [%s]\n USERNAME [%s]\nPASSWD [%s]", port, hostname, addr, username, passwd)
-	return smtpConfig{
+	return &smtpConfig{
 		username: username,
 		addr:     addr,
 		auth:     smtp.PlainAuth("", username, passwd, hostname),
