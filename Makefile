@@ -1,11 +1,11 @@
 SHELL = /bin/bash
 
-NAME = gotifications
+NAME = demail-api
 SRC_FOLDER = .
 MAIN = $(SRC_FOLDER)/main.go
 SET_ENV = godotenv -f .env.local,.env
 
-DOCKER_IMG = $(NAME)-img
+DOCKER_IMG = dlacreme/$(NAME)-img:latest
 DOCKER_CONTAINER = $(NAME)-container
 
 .PHONY: all
@@ -25,7 +25,7 @@ test:
 
 .PHONY: docker.build
 docker.build:
-	docker build -t dlacreme/gotifications:latest .
+	docker build -t $(DOCKER_IMG) .
 
 .PHONY: docker.run
 docker.run:

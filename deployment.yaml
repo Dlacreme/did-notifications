@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gotifications
+  name: demail-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gotifications
+      app: demail-api
   template:
     metadata:
       labels:
-        app: gotifications
+        app: demail-api
     spec:
       containers:
-      - name: gotifications-container
-        image: dlacreme/gotifications:latest
+      - name: demail-api-container
+        image: dlacreme/demail-api:latest
         imagePullPolicy: Never
         resources:
           limits:

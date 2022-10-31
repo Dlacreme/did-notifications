@@ -1,4 +1,4 @@
-module github.com/dlacreme/gotifications
+module github.com/dlacreme/demail-api
 
 go 1.19
 

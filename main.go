@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/dlacreme/gotifications/api"
-	"github.com/dlacreme/gotifications/env"
+	"github.com/dlacreme/demail-api/api"
+	"github.com/dlacreme/demail-api/env"
 	"github.com/labstack/echo/v4"
 )
 

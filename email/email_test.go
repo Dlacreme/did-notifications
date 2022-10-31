@@ -3,7 +3,7 @@ package email
 import (
 	"testing"
 
-	"github.com/dlacreme/gotifications/env"
+	"github.com/dlacreme/demail-api/env"
 )
 
 func init() {
