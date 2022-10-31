@@ -25,7 +25,7 @@ test:
 
 .PHONY: docker.build
 docker.build:
-	docker build -t $(DOCKER_IMG) .
+	docker build -t dlacreme/gotifications:latest .
 
 .PHONY: docker.run
 docker.run:

@@ -14,10 +14,23 @@ spec:
     spec:
       containers:
       - name: gotifications-container
-        image: gotifications-img
+        image: dlacreme/gotifications:latest
+        imagePullPolicy: Never
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
         - containerPort: 1042
+        env:
+        - name: SMTP_HOSTNAME
+          value: smtp.mailtrap.io
+        - name: SMTP_PORT
+          value: "2525"
+        - name: SMTP_USERNAME
+          value: "940940247f27d7"
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: dlc-secrets
+              key: smtp-password
