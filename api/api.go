@@ -16,5 +16,5 @@ func RegisterEndpoints(e *echo.Echo) {
 }
 
 func health(c echo.Context) error {
-	return c.String(http.StatusOK, "Im alive.")
+	return c.String(http.StatusOK, "<Notifications>: Im alive.")
 }
