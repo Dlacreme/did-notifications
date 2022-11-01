@@ -1,4 +1,4 @@
-# DID Notifcations
+# DID Notifications
 
 Notifications micro-service in Go.
 
