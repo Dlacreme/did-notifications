@@ -1,4 +1,4 @@
-# Demail API
+# DID Notifcations
 
 Notifications micro-service in Go.
 

@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-NAME = demail-api
+NAME = did-notifications
 SRC_FOLDER = .
 MAIN = $(SRC_FOLDER)/main.go
 SET_ENV = godotenv -f .env.local,.env

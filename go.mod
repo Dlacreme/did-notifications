@@ -1,4 +1,4 @@
-module github.com/dlacreme/demail-api
+module github.com/dlacreme/did-notifications
 
 go 1.19
 

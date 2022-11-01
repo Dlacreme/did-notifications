@@ -21,4 +21,4 @@
 # Go workspace file
 go.work
 
-demail-api-secret.yaml
+did-notifications-secret.yaml

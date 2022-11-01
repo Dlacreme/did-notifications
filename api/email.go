@@ -3,7 +3,7 @@ package api
 import (
 	"net/http"
 
-	"github.com/dlacreme/demail-api/email"
+	"github.com/dlacreme/did-notifications/email"
 	"github.com/labstack/echo/v4"
 )
 

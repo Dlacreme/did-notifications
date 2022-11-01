@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demail-api
+  name: did-notifications
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demail-api
+      app: did-notifications
   template:
     metadata:
       labels:
-        app: demail-api
+        app: did-notifications
     spec:
       containers:
-      - name: demail-api-container
-        image: dlacreme/demail-api:latest
+      - name: did-notifications-container
+        image: dlacreme/did-notifications:latest
         imagePullPolicy: Never
         resources:
           limits:

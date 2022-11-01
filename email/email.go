@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dlacreme/demail-api/env"
+	"github.com/dlacreme/did-notifications/env"
 )
 
 type smtpConfig struct {
